@@ -155,5 +155,16 @@
 }
   
    /* about */
+   .fate{
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 1s ease-in-out;
+}
+
+.fate.fatein{
+    opacity: 1;
+    transform: translateX(0);
+
+}
 
 }

@@ -5,8 +5,12 @@ body{
     width: 1200px;
     overflow-x: hidden;
     position: relative;
+    min-height: 800px;
+   
 }
-
+.add{
+    color: #55efc4;
+}
 .navbar{
 
     width: 100%;
@@ -80,6 +84,7 @@ a{
     margin-top: 100px;
     padding: 0 2.3em;
     position: relative;
+    height: 100vh;
 }
 
 .circle{
@@ -165,3 +170,20 @@ a{
     color: #ff9f43;
 }
 /* main page  */
+.scrollTop{
+    position: fixed;
+    bottom: 50px;
+    right: 70px;
+    cursor: pointer;
+}
+.fate{
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 1s ease-in-out;
+}
+
+.fate.fatein{
+    opacity: 1;
+    transform: translateX(0);
+
+}

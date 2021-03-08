@@ -217,6 +217,17 @@
     }
 
     /* footer  */
+    .fate{
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: 1s ease-in-out;
+    }
+    
+    .fate.fatein{
+        opacity: 1;
+        transform: translateX(0);
+    
+    }
 
 }
 @media (max-width:500px){
@@ -225,5 +236,16 @@
     }
     .skill__icon:nth-child(1){
         margin-left: 78px;
+    }
+    .fate{
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: 1s ease-in-out;
+    }
+    
+    .fate.fatein{
+        opacity: 1;
+        transform: translateX(0);
+    
     }
 }
