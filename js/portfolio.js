@@ -1,10 +1,84 @@
+const menu = document.querySelectorAll('.nav__item');
 const openMenu = document.querySelector('.navbar__button');
 const checkMenu = document.querySelector('.navbar-nav-tablet');
+const chooseMenu = document.querySelector('.navbar-nav');
 const contactBTN = document.querySelector('.contact-btn');
 const disable =document.querySelectorAll('.disable');
 const mobieNav = document.querySelectorAll('.nav__item-tablet');
+const scrollTop = document.querySelector('.scrollTop');
+const fate = document.querySelectorAll('.fate');
 
 
+
+
+menu.forEach(item =>{
+    item.onclick = ()=>{
+        const nodeList = item.parentNode.querySelectorAll('a');
+       nodeList.forEach(node =>{
+        if(node.classList.contains('add')){
+            node.classList.remove('add');
+        }
+
+       })
+
+        item.querySelector('a').classList.add('add')
+        console.log(nodeList)
+    }
+})
+
+
+// scroll to top 
+scrollTop.onclick = ()=>{
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const hide = chooseMenu.querySelectorAll('a');
+    hide.forEach(node =>{
+        if(node.classList.contains('add')){
+            node.classList.remove('add');
+        }
+        if(node.classList.contains('active')){
+            node.classList.add('add')
+        }
+      
+       })
+
+
+}
+ // scroll page
+ window.addEventListener("scroll",function(){
+    var pageY= window.pageYOffset;
+    if(pageY>350){
+      scrollTop.style.display="block";
+      scrollTop.style.opacity="1";
+      scrollTop.style.transition="display 1s ease";
+    }else{
+      scrollTop.style.display="none";
+      scrollTop.style.opacity="0";
+      scrollTop.style.transition="all 0.5s ease-in-out";
+    }
+})
+  // scroll
+
+// IntersectionObserver
+let option ={
+    threshold:1,
+    rootMargin: "0px 0px -25px 0px"
+}
+const observe = new IntersectionObserver(function(entries,observer){
+    {
+        entries.forEach(entry =>{
+            if(!entry.isIntersecting){
+                return;
+            }else{
+                entry.target.classList.toggle('fatein');
+                observer.unobserve(entry.target)
+            }
+        })
+    }
+},option)
+fate.forEach(fate =>{
+    observe.observe(fate)
+})
+// IntersectionObserver
 
         openMenu.onclick = () =>{
             openMenu.classList.toggle('open');
@@ -57,9 +131,6 @@ const mobieNav = document.querySelectorAll('.nav__item-tablet');
                 var pacentColor = contentDEV.querySelector('.pacent__color');
 
 
-               
-              
-
                 var pacent = 0;
                 type.forEach(item =>{
                     if(item.name === name){
@@ -72,7 +143,7 @@ const mobieNav = document.querySelectorAll('.nav__item-tablet');
                     const count = ()=>{
                         start++;
                         contentNumber.textContent = `${start} %`;
-                        if(start > 85){
+                        if(start > 75){
                             contentNumber.style.color = `red`;
                         }else{
                             contentNumber.style.color = `black`;
@@ -116,15 +187,15 @@ popup({
         [
             {
                 name : 'html',
-                value : 95
+                value : 75
             },
             {
                 name : 'css',
-                value : 95
-            },
+                value : 80 
+             },
             {
                 name : 'javascript',
-                value : 80
+                value : 70
             },
             {
                 name : 'react',
@@ -140,7 +211,7 @@ popup({
             },
             {
                 name : 'bootstrap',
-                value : 80
+                value : 70
             },
             {
                 name : 'mongodb',
